@@ -1,5 +1,5 @@
 # === Web & API Framework ===
-fastapi>=0.95.0,<0.110.0
+fastapi==0.95.2
 uvicorn[standard]>=0.22.0
 python-multipart
 jinja2
@@ -11,7 +11,7 @@ numpy>=1.23.5,<1.27
 pandas>=1.5.3,<2.3
 scikit-learn==1.2.2
 joblib>=1.2.0
-xgboost>=1.7.0,<2.0
+xgboost>=1.7.0
 lightgbm>=3.3.0
 catboost>=1.2.3
 mlxtend>=0.23.1
@@ -25,13 +25,13 @@ onnx>=1.14.0
 onnxruntime>=1.15.1
 accelerate>=0.27.0
 
-# === NLP (Tam uyumlu!) ===
+# === NLP (Uyumlu) ===
 spacy==3.4.4
 scispacy==0.5.1
 en-core-sci-sm @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.1/en_core_sci_sm-0.5.1.tar.gz
 nltk>=3.8.1
 
-# === Video & Image Processing ===
+# === Image & Video Processing ===
 opencv-python>=4.7.0
 pillow>=10.2.0
 imageio>=2.31.0
@@ -54,8 +54,7 @@ matplotlib>=3.7.1
 seaborn>=0.12.2
 dash>=2.11.0
 
-# === UI & Panel ===
-gradio>=4.15.0
+# === UI (streamlit yeterli) ===
 streamlit>=1.30.0
 
 # === Utility & Logging ===
