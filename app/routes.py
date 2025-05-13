@@ -49,19 +49,14 @@ async def explain_ai(hasta_id: str = Form(...)):
 
 @router.post("/classify-text/")
 async def classify_text(input_text: str = Form(...), labels: str = Form(...)):
-    """Transformers ile metin sınıflandırma (zero-shot classification)"""
+    """Transformers ile metin sınıflandırma"""
     try:
         candidate_labels = [l.strip() for l in labels.split(",")]
         result = router.app.nlp_pipe(input_text, candidate_labels)
-        return {
-            "status": "success",
-            "labels": result["labels"],
-            "scores": result["scores"]
-        }
+        return {"status": "success", "labels": result["labels"], "scores": result["scores"]}
     except Exception as e:
         return {"status": "error", "message": f"NLP sınıflandırma başarısız: {e}"}
 
 @router.get("/health/")
 async def health_check():
-    """API sağlık kontrolü"""
-    return {"status": "running", "message": "Pnömotoraks AI API aktif ve çalışıyor."}
+    return {"status": "running", "message": "Pnömotoraks AI API aktif"}
