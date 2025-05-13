@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pnömotoraks Vaka Yükleme</title>
+</head>
+<body>
+    <h2>Yeni Vaka Girişi</h2>
+    <form action="/upload/" enctype="multipart/form-data" method="post">
+        Hasta ID: <input type="text" name="hasta_id"><br>
+        Video Dosyası (.avi): <input type="file" name="file"><br>
+        SpO2: <input type="number" name="spo2"><br>
+        RR: <input type="number" name="rr"><br>
+        HR: <input type="number" name="hr"><br>
+        BP: <input type="number" name="bp"><br>
+        Bilinç: <input type="number" name="bilinc"><br>
+        Yaş: <input type="number" name="yas"><br>
+        <input type="submit" value="Vaka Yükle">
+    </form>
+</body>
+</html>
