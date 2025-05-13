@@ -1,13 +1,36 @@
-
+# Python cache ve derleme dosyaları
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.so
+
+# Sanal ortamlar
+.venv/
+env/
+ENV/
+
+# Ortam değişkenleri
 .env
-*.db
-*.sqlite3
+*.env
+
+# Model dosyaları ve veriler
+*.pkl
 *.avi
-*.zip
-logs/
+*.dcm
 uploaded_videos/
-prediction_results.csv
+models/
+logs/
+
+# Notebook artıkları
+.ipynb_checkpoints/
+
+# Build dosyaları
+*.egg-info/
+*.log
+
+# IDE dosyaları
+.vscode/
+.idea/
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
