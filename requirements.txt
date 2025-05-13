@@ -1,46 +1,40 @@
-# === Web API ===
+# Final CLEAN requirements (no nmslib, no transformers)
+
 fastapi==0.95.2
-uvicorn[standard]>=0.22.0
+uvicorn[standard]
 python-multipart
 jinja2
 pydantic==1.10.13
 python-dotenv
 
-# === Data Science & ML ===
-numpy>=1.23.5
-pandas>=1.5.3
+numpy
+pandas
 scikit-learn==1.2.2
 joblib
 xgboost
 lightgbm
 catboost
-mlxtend
 
-# === Deep Learning ===
-torch>=2.0.1
+torch
 torchvision
 tensorflow==2.15.0
 keras==2.15.0
 
-# === NLP ===
 spacy==3.4.4
 scispacy==0.5.1
 en-core-sci-sm @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.1/en_core_sci_sm-0.5.1.tar.gz
-nltk>=3.8.1
+nltk
 
-# === Imaging ===
 opencv-python
 pillow
 imageio
 scikit-image
 albumentations
 
-# === Medical Imaging ===
 pydicom
 SimpleITK
 nibabel
 
-# === Explainability & Viz ===
 shap
 lime
 plotly
@@ -48,15 +42,12 @@ matplotlib
 seaborn
 dash
 
-# === UI ===
 streamlit
 
-# === Utilities ===
 tqdm
 requests
 loguru
 rich
 httpx
 
-# === Dev ===
 pytest
