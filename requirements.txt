@@ -1,4 +1,4 @@
-# === FastAPI Web Framework ===
+# === Web & API Framework ===
 fastapi>=0.110.0
 uvicorn[standard]>=0.27.0
 python-multipart
@@ -6,7 +6,7 @@ jinja2
 pydantic>=2.5
 python-dotenv
 
-# === Data & ML Core ===
+# === Data Science & ML Core ===
 numpy>=1.26.0
 pandas>=2.2.0
 scikit-learn>=1.4.2
@@ -25,13 +25,11 @@ onnx>=1.16.0
 onnxruntime>=1.17.1
 accelerate>=0.28.0
 
-# === Transformers & NLP ===
-transformers>=4.40.0
-sentence-transformers>=2.6.1
-scispacy>=0.5.1
-nltk>=3.8.1
-spacy>=3.7.4
+# === NLP (Uyumlu) ===
+spacy==3.4.4
+scispacy==0.5.1
 en-core-sci-sm @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.1/en_core_sci_sm-0.5.1.tar.gz
+nltk>=3.8.1
 
 # === Image & Video Processing ===
 opencv-python>=4.9.0
