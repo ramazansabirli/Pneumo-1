@@ -4,10 +4,16 @@ from fastapi.staticfiles import StaticFiles
 import shutil
 import os
 import uvicorn
+import csv
+import joblib
+from sklearn.ensemble import RandomForestClassifier
+import numpy as np
 
 app = FastAPI()
 
 UPLOAD_DIR = "uploaded_videos"
+DATA_FILE = "training_data.csv"
+MODEL_FILE = "pnömotoraks_model.pkl"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 app.mount("/static", StaticFiles(directory=UPLOAD_DIR), name="static")
@@ -30,8 +36,12 @@ async def main_form():
                 Bilinç: <input type="text" name="bilinc"><br>
                 Yaş: <input type="text" name="yas"><br>
                 Cinsiyet: <input type="text" name="cinsiyet"><br>
-                Uygulanan Tedavi: <input type="text" name="tedavi"><br><br>
-                <input type="submit">
+                Uygulanan Tedavi (etiket): <input type="text" name="tedavi"><br><br>
+                <input type="submit" value="Veriyi Kaydet">
+            </form>
+            <br>
+            <form action="/train/" method="post">
+                <input type="submit" value="Modeli Eğit">
             </form>
         </body>
     </html>
@@ -54,18 +64,31 @@ async def upload(
     with open(file_location, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    return {
-        "message": "Veriler yüklendi.",
-        "video_path": f"/static/{file.filename}",
-        "spo2": spo2,
-        "rr": rr,
-        "hr": hr,
-        "bp": bp,
-        "bilinc": bilinc,
-        "yas": yas,
-        "cinsiyet": cinsiyet,
-        "tedavi": tedavi
-    }
+    with open(DATA_FILE, mode="a", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow([spo2, rr, hr, bp, bilinc, yas, cinsiyet, tedavi])
+
+    return {"message": "Vaka ve video kaydedildi."}
+
+@app.post("/train/")
+async def train_model():
+    if not os.path.exists(DATA_FILE):
+        return {"message": "Henüz eğitim verisi bulunmuyor."}
+
+    X, y = [], []
+    with open(DATA_FILE, newline="") as f:
+        reader = csv.reader(f)
+        for row in reader:
+            try:
+                X.append([float(row[0]), float(row[1]), float(row[2]), float(row[3]), float(row[4]), float(row[5])])
+                y.append(row[7])
+            except:
+                continue
+
+    model = RandomForestClassifier()
+    model.fit(X, y)
+    joblib.dump(model, MODEL_FILE)
+    return {"message": "Model başarıyla eğitildi."}
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)
