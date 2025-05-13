@@ -1,0 +1,13 @@
+
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+*.db
+*.sqlite3
+*.avi
+*.zip
+logs/
+uploaded_videos/
+prediction_results.csv
