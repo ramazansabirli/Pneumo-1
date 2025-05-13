@@ -1,6 +1,25 @@
 services:
   - type: web
-    name: pnömotoraks-ai
+    name: pnömotoraks-ai-pro
     env: python
-    buildCommand: ""
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    region: frankfurt
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000 --log-level info
+    autoDeploy: true
+    runtime: python3
+    envVars:
+      - key: APP_TITLE
+        value: "Pnömotoraks AI Karar Destek Sistemi"
+      - key: APP_VERSION
+        value: "2.0"
+      - key: SESSION_SECRET
+        value: "ultra-secret-key"
+      - key: LOG_PATH
+        value: "logs"
+      - key: UPLOAD_DIR
+        value: "uploaded_videos"
+    disk:
+      name: pnömotoraks-upload-disk
+      mountPath: uploaded_videos
+      sizeGB: 2
