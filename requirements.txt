@@ -1,30 +1,70 @@
-# Web framework
-fastapi>=0.95.0
-uvicorn[standard]>=0.22.0
+# === Web & API Framework ===
+fastapi>=0.100.0
+uvicorn[standard]>=0.25.0
 python-multipart
 jinja2
-pydantic
-python-dotenv
+pydantic>=2.5
+python-dotenv>=1.0.1
 
-# Data processing & ML
-numpy==1.23.5
-pandas>=1.5.3
-scikit-learn==1.2.2
-xgboost>=1.7.0
-lightgbm>=3.3.0
-joblib
+# === Core Data Science & ML ===
+numpy>=1.26.0
+pandas>=2.2.0
+scikit-learn>=1.4.0
+xgboost>=2.0.3
+lightgbm>=4.1.0
+joblib>=1.4.0
+catboost>=1.2.3
+mlxtend>=0.23.1
 
-# Video & image processing
-opencv-python>=4.7.0
-pillow
-imageio
+# === Deep Learning Frameworks ===
+torch>=2.2.0
+torchvision>=0.17.0
+torchaudio>=2.2.0
+tensorflow>=2.15.0
+keras>=2.15.0
+onnx>=1.15.0
+onnxruntime>=1.16.3
+transformers>=4.39.1
+sentence-transformers>=2.6.1
+accelerate>=0.28.0
 
-# Visualization & analysis
-matplotlib>=3.7.0
-seaborn>=0.12.2
-plotly>=5.13.0
+# === NLP & Medical Text ===
+scispacy
+en-core-sci-sm @ https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.1/en_core_sci_sm-0.5.1.tar.gz
+nltk>=3.8.1
+spacy>=3.7.4
 
-# System and utils
-tqdm>=4.65.0
-requests>=2.28.2
-loguru
+# === Image & Video Processing ===
+opencv-python>=4.9.0
+pillow>=10.2.0
+imageio>=2.33.0
+scikit-image>=0.22.0
+albumentations>=1.4.0
+pywavelets>=1.5.0
+imagehash>=4.3.1
+
+# === Medical Imaging (DICOM, NIfTI) ===
+pydicom>=2.4.4
+nibabel>=5.2.0
+SimpleITK>=2.3.0
+
+# === Visualization & Explainability ===
+matplotlib>=3.8.0
+seaborn>=0.13.0
+plotly>=5.20.0
+shap>=0.44.0
+lime>=0.2.0.1
+gradio>=4.18.0
+dash>=2.15.0
+streamlit>=1.32.2
+
+# === Monitoring, Logging, and Dev Tools ===
+tqdm>=4.66.1
+requests>=2.31.0
+loguru>=0.7.2
+rich>=13.7.0
+httpx>=0.26.0
+watchdog>=4.0.0
+pytest>=8.1.1
+black>=24.3.0
+pre-commit>=3.7.0
